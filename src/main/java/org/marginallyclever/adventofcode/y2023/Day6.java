@@ -43,7 +43,7 @@ public class Day6 {
             }
         }
 
-        System.out.println("way2="+(end-start));
+        System.out.println("answer 2="+(end-start));
     }
 
     private void findAnswer1() {
@@ -66,7 +66,7 @@ public class Day6 {
         for(int i=0;i<times.length;++i) {
             if(ways[i]>0) sum *= ways[i];
         }
-        System.out.println("sum = "+sum);
+        System.out.println("answer 1 = "+sum);
     }
 
     /**
