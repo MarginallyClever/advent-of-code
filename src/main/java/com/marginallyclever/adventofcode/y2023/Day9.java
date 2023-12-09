@@ -44,6 +44,11 @@ public class Day9 {
     List<Sequence> sequences = new ArrayList<>();
 
     private void findAnswer2() {
+        int sum=0;
+        for(Sequence s : sequences) {
+            sum += getSequencePrev(s);
+        }
+        System.out.println("Answer 2 = "+sum);
     }
 
     private void findAnswer1() {
@@ -61,7 +66,7 @@ public class Day9 {
             d = getSequenceNext(diff);
         }
 
-        return s.numbers.get(s.numbers.size()-1) + d;
+        return s.numbers.getLast() + d;
     }
 
     private int getSequencePrev(Sequence s) {
@@ -70,7 +75,7 @@ public class Day9 {
             Sequence diff = s.getSeqenceOfDifferences();
             d = getSequencePrev(diff);
         }
-        return s.numbers.get(s.numbers.size()-1) + d;
+        return s.numbers.getFirst() - d;
     }
 
     private void processLine(String line) {
