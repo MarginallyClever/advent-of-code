@@ -1,10 +1,11 @@
-package com.marginallyclever.adventofcode.y2022;
+package com.marginallyclever.adventofcode.y2023;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Day10 {
     static class Operation {
@@ -76,7 +77,7 @@ public class Day10 {
     }
 
     private void processFile(String filename) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Day9.class.getResourceAsStream(filename))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)))))) {
             String line;
             while ((line = br.readLine()) != null) {
                 processLine(br,line);

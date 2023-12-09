@@ -15,7 +15,7 @@ public class Day4 {
     }
 
     private void processFile(String filename) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(Day4.class.getResourceAsStream(filename)))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)))))) {
             String line;
             while ((line = br.readLine()) != null) {
                 processLine(line);

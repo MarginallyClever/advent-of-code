@@ -1,10 +1,9 @@
-package org.marginallyclever.adventofcode.y2023;
+package com.marginallyclever.adventofcode.y2023;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Watchable;
 import java.util.*;
 
 public class Day8 {
@@ -126,7 +125,7 @@ public class Day8 {
     }
 
     private void processFile(String filename) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(Day8.class.getResourceAsStream(filename)))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)))))) {
             String line;
             while ((line = br.readLine()) != null) {
                 processLine(line);

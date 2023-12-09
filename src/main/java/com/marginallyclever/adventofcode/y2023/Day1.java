@@ -13,7 +13,7 @@ public class Day1 {
     }
 
     private void processFile(String filename) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Day1.class.getResourceAsStream(filename))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(this.getClass().getResourceAsStream(filename))))) {
             String line;
             while ((line = br.readLine()) != null) {
                 processLine(line);

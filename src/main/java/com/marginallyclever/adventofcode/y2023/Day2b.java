@@ -5,15 +5,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Day2 {
+public class Day2b {
 
     public static void main(String[] args) {
-        Day2 me = new Day2();
+        Day2b me = new Day2b();
         me.processFile("input.txt");
     }
 
     private void processFile(String filename) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Day2.class.getResourceAsStream(filename))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(this.getClass().getResourceAsStream(filename))))) {
             String line;
             while ((line = br.readLine()) != null) {
                 processLine(line);
@@ -24,9 +24,9 @@ public class Day2 {
     }
 
     int sum = 0;
-    final int maxR = 12;
-    final int maxG = 13;
-    final int maxB = 14;
+    int minR = 0;
+    int minG = 0;
+    int minB = 0;
 
     /**
      * line is in format
@@ -45,6 +45,7 @@ public class Day2 {
         System.out.println("Game "+gameNumber);
         line = line.substring(colon+1);
 
+        minR = minG = minB = 0;
         int r=0;
         int g=0;
         int b=0;
@@ -68,13 +69,14 @@ public class Day2 {
                     default: throw new RuntimeException("Unknown color '"+colorName+"'");
                 }
             }
-            if(r>maxR) return;
-            if(g>maxG) return;
-            if(b>maxB) return;
+            if(r>minR) minR = r;
+            if(g>minG) minG = g;
+            if(b>minB) minB = b;
         }
-        System.out.println("  red="+r+" green="+g+" blue="+b);
-        System.out.println("Game "+gameNumber+" is valid.");
-        sum += gameNumber;
+        System.out.println("  red="+minR+" green="+minG+" blue="+minB);
+        int power = minR*minG*minB;
+        System.out.println("Game "+gameNumber+" power is "+power);
+        sum += power;
         System.out.println("sum is "+sum);
     }
 }

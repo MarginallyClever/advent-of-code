@@ -89,7 +89,7 @@ package com.marginallyclever.adventofcode.y2023;
         }
 
         private void processFile(String filename) {
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(Day5.class.getResourceAsStream(filename)))))) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(new BufferedInputStream(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)))))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     processLine(line);
