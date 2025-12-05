@@ -20,7 +20,17 @@ public abstract class AdventOfCode {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        postProcess();
     }
 
+    /**
+     * Process a single line from the input file.
+     * @param line The line to process.
+     */
     public abstract void processLine(String line);
+
+    /**
+     * Called after all lines have been processed.
+     */
+    public void postProcess() {}
 }
