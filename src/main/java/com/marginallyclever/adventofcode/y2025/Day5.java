@@ -8,17 +8,15 @@ import java.util.List;
 
 public class Day5 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day5();
+        new Day5().run();
     }
 
     private long sum=0;
     boolean phaseTwo=false;
-    private List<Vector2d> ranges;
+    private List<Vector2d> ranges = new ArrayList<>();
 
     @Override
     public void processLine(String line) {
-        if(ranges==null) ranges = new ArrayList<>();
-
         if(line.trim().isEmpty()) {
             phaseTwo = true;
             return;

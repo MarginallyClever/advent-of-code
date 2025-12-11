@@ -4,7 +4,7 @@ import com.marginallyclever.adventofcode.AdventOfCode;
 
 public class Day1 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day1();
+        new Day1().run();
     }
 
     int dialPosition = 50;

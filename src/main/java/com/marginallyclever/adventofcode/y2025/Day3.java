@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Day3 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day3();
+        new Day3().run();
     }
 
     long sum=0;

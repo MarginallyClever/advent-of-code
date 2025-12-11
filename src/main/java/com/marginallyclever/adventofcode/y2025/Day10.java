@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Day10 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day10();
+        new Day10().run();
     }
 
     long sum=0;
@@ -174,7 +174,6 @@ public class Day10 extends AdventOfCode {
         }
 
         public boolean exceeds(State target) {
-            boolean exceeds = false;
             for(int i=0;i<count.size();i++) {
                 if(count.get(i) > target.count.get(i)) {
                     return true;
@@ -182,56 +181,26 @@ public class Day10 extends AdventOfCode {
             }
             return false;
         }
+
+        public void add(State other) {
+            for(int i=0;i<count.size();i++) {
+                count.set(i,count.get(i)+other.count.get(i));
+            }
+        }
     }
 
     /**
      * Find the minimum number of button presses to reach all target voltages.
      * the target voltages should not be exceeded, so we can ignore states that exceed any target.
      * A breadth-first search would exhaust the system's RAM as the target values are too high.
-     * Instead, we can use a priority queue to explore the most promising states first.
      *
      * @param machine the machine to solve
      * @param target the list of target voltages
      * @return the minimum number of button presses to reach all targets
      */
-    private int findMinimumPressesForVoltages(Machine machine,State target) {
-        List<State> queue = new ArrayList<>();
-        List<State> visited = new ArrayList<>();
-        // start with initial state
-        State initialState = new State(target.size());
-        queue.add(initialState);
-        // mark initial state as visited
-        visited.add(initialState);
-        int steps = 0;
-        boolean found = false;
-        while(!queue.isEmpty() && !found) {
-            // process current level
-            List<State> nextQueue = new ArrayList<>();
-            for(State state : queue) {
-                if(state.equals(target)) {
-                    found = true;
-                    break;
-                }
-                // try pressing each button
-                for(int button : machine.buttons) {
-                    State newState = new State(state);
-                    newState.press(button);
-                    if(newState.exceeds(target)) {
-                        continue;
-                    }
-                    if(!visitedContainsState(visited,newState)) {
-                        // mark new state as visited
-                        visited.add(newState);
-                        // add new state to next level queue
-                        nextQueue.add(newState);
-                    }
-                }
-            }
-            queue = nextQueue;
-            steps++;
-        }
-        // subtract 1 from steps because we incremented after finding the target
-        return steps-1;
+    private long findMinimumPressesForVoltages(Machine machine,State target) {
+
+        return 0;
     }
 
     private boolean visitedContainsState(List<State> visited, State newState) {

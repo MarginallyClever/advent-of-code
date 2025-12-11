@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Day7 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day7();
+        new Day7().run();
     }
 
     int sum=0;
@@ -21,14 +21,12 @@ public class Day7 extends AdventOfCode {
             this.pos = position;
         }
     }
-    private List<Beam> beams;
+    private List<Beam> beams = new ArrayList<>();
 
     @Override
     public void processLine(String line) {
         List<Beam> newBeams = new ArrayList<>();
-        if(beams ==null) {
-            beams = new ArrayList<>();
-
+        if(beams.isEmpty()) {
             // must be first line.  scan line for 'S' position.
             for(int i=0; i<line.length(); i++) {
                 char c = line.charAt(i);

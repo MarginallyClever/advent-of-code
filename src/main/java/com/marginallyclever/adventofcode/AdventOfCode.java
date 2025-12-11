@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public abstract class AdventOfCode {
-    public AdventOfCode() {
+    public AdventOfCode() {}
+
+    public void run() {
         String name = this.getClass().getSimpleName();
         processFile(name+".txt");
+        postProcess();
     }
 
     private void processFile(String filename) {
@@ -20,7 +23,6 @@ public abstract class AdventOfCode {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        postProcess();
     }
 
     /**

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Day8 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day8();
+        new Day8().run();
     }
 
     int sum=0;
@@ -32,7 +32,7 @@ public class Day8 extends AdventOfCode {
         }
     }
 
-    List<Point> points;
+    List<Point> points = new ArrayList<>();
 
     static public class PointPair {
         int i;
@@ -47,17 +47,12 @@ public class Day8 extends AdventOfCode {
         }
     }
 
-    List<Long> pointPairs;
+    List<Long> pointPairs = new ArrayList<>();
 
-    int biggestNetworkID;
+    int biggestNetworkID=1;
 
     @Override
     public void processLine(String line) {
-        if(points==null) {
-            points = new ArrayList<>();
-            pointPairs = new ArrayList<>();
-            biggestNetworkID=1;
-        }
         String[] tokens = line.split(",");
         Point point = new Point(
                 Integer.parseInt(tokens[0]),

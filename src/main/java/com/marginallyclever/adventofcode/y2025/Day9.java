@@ -5,16 +5,17 @@ import com.marginallyclever.adventofcode.AdventOfCode;
 import javax.vecmath.Point2d;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day9 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day9();
+        new Day9().run();
     }
 
-    List<Point2d> points;
+    List<Point2d> points = new ArrayList<>();
     int read=0;
-    int topX,topY;
+    int topX, topY;
 
     public static class LineSegment {
         Point2d p1;
@@ -28,10 +29,6 @@ public class Day9 extends AdventOfCode {
 
     @Override
     public void processLine(String line) {
-        if(points==null) {
-            points = new java.util.ArrayList<>();
-            System.out.println("allocated points list");
-        }
         System.out.println(read+"...");
         read++;
 

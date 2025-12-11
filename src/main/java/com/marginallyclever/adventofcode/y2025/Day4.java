@@ -9,22 +9,19 @@ import java.util.List;
 
 public class Day4 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day4();
+        new Day4().run();
     }
 
     public static final char OCCUPIED = '@';
     public static final char EMPTY = '.';
     private long sum=0;
     private int width, height;
-    private List<Character> grid;
-    private List<Vector2d> toRemove;
+    private List<Character> grid = new ArrayList<>();
+    private List<Vector2d> toRemove = new ArrayList<>();
 
 
     @Override
     public void processLine(String line) {
-        if(grid==null) grid = new ArrayList<>();
-        if(toRemove==null) toRemove = new ArrayList<>();
-
         width = line.length();
         for( Character c : line.toCharArray() ) {
             grid.add(c);

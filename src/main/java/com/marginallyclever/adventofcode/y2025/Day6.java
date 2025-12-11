@@ -10,10 +10,10 @@ import java.util.List;
  */
 public class Day6 extends AdventOfCode {
     public static void main(String[] args) {
-        new Day6();
+        new Day6().run();
     }
 
-    private List<String> allLines;
+    private List<String> allLines = new ArrayList<>();
 
     // Helper class to hold values for a series
     public static class Values {
@@ -44,12 +44,10 @@ public class Day6 extends AdventOfCode {
         }
     }
 
-    private List<Values> series;
+    private List<Values> series = new ArrayList<>();
 
     @Override
     public void processLine(String line) {
-        if(series==null) series = new ArrayList<>();
-        if(allLines == null) allLines = new ArrayList<>();
         allLines.add(line);
     }
 
